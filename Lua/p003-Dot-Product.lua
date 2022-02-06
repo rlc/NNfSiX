@@ -3,38 +3,7 @@ Doing dot product with a layer of neurons and multiple inputs
 Associated YT NNFS tutorial: https://www.youtube.com/watch?v=tMrbN67U9d4
 --]]
 --- Helper functions ----------
--- NOTE: these functions are written to handle the use case specified in the example
--- and hence contains only bare-minimum error handling
-local _print = print
-local function arrayToString(a)
-    local out = {}
-    for i, v in ipairs(a) do
-        if type(v) == "table" then
-            out[i] = arrayToString(v)
-        else
-            out[i] = v
-        end
-    end
-
-    return string.format("{%s}", table.concat(out, ", "))
-end
-
-function print(t)
-    if type(t) == "table" then
-        -- assume all tables are arrays
-        _print(arrayToString(t))
-    else
-        _print(t)
-    end
-end
-
-function zip(a, b)
-    local i = 0
-    return function()
-        i = i + 1
-        return a[i], b[i]
-    end
-end
+require("pythonLua")
 
 -- np simulation
 local np = {}
