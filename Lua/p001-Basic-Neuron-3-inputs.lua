@@ -3,9 +3,9 @@ Creates a basic neuron with 3 inputs.
 Associated YT NNFS tutorial: https://www.youtube.com/watch?v=Wo5dMEP_BbI
 ]]--
 
-Inputs = {1.2, 5.1, 2.1}
-Weights = {3.1, 2.1, 8.7}
-Bias = 3.0
+inputs = {1.2, 5.1, 2.1}
+weights = {3.1, 2.1, 8.7}
+bias = 3.0
 
-Output = Inputs[1]*Weights[1] + Inputs[2]*Weights[2] + Inputs[3]*Weights[3] + Bias
-print(Output)
+output = inputs[1]*weights[1] + inputs[2]*weights[2] + inputs[3]*weights[3] + bias
+print(output)

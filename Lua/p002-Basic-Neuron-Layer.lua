@@ -1,20 +1,20 @@
 --[[
 Creates a simple layer of neurons, with 4 inputs.
 Associated YT NNFS tutorial: https://www.youtube.com/watch?v=lGLto9Xd7bU
-]]--
+--]]
 
-Inputs = {1.0, 2.0, 3.0, 2.5}
+inputs = {1.0, 2.0, 3.0, 2.5}
 
-Weights1 = {0.2, 0.8, -0.5, 1.0}
-Weights2 = {0.5, -0.91, 0.26, -0.5}
-Weights3 = {-0.26, -0.27, 0.17, 0.87}
+weights1 = {0.2, 0.8, -0.5, 1.0}
+weights2 = {0.5, -0.91, 0.26, -0.5}
+weights3 = {-0.26, -0.27, 0.17, 0.87}
 
-Bias1 = 2.0
-Bias2 = 3.0
-Bias3 = 0.5
+bias1 = 2.0
+bias2 = 3.0
+bias3 = 0.5
 
-Output = {Inputs[1]*Weights1[1] + Inputs[2]*Weights1[2] + Inputs[3]*Weights1[3] + Inputs[4]*Weights1[4] + Bias1,
-          Inputs[1]*Weights2[1] + Inputs[2]*Weights2[2] + Inputs[3]*Weights2[3] + Inputs[4]*Weights2[4] + Bias2,
-          Inputs[1]*Weights3[1] + Inputs[2]*Weights3[2] + Inputs[3]*Weights3[3] + Inputs[4]*Weights3[4] + Bias3}
+output = {inputs[1]*weights1[1] + inputs[2]*weights1[2] + inputs[3]*weights1[3] + inputs[4]*weights1[4] + bias1,
+          inputs[1]*weights2[1] + inputs[2]*weights2[2] + inputs[3]*weights2[3] + inputs[4]*weights2[4] + bias2,
+          inputs[1]*weights3[1] + inputs[2]*weights3[2] + inputs[3]*weights3[3] + inputs[4]*weights3[4] + bias3}
 
-print(string.format("[%f,%f,%f]\n",Output[1], Output[2], Output[3]))
+print(string.format("[%f,%f,%f]\n",output[1], output[2], output[3]))
