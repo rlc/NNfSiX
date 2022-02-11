@@ -43,7 +43,30 @@ end
 
 -- convert regular table to npArray
 function numpyLua.array(t)
+    -- transposed array is provided immediately
+    -- just as numpyArray.T
+    -- and can be reverted back using the same T key
+    t.T = numpyLua.transpose(t)
+    t.T.T = t
+
     return setmetatable(t, mt_npArray)
+end
+
+function numpyLua.transpose(a)
+    local out = {}
+    for i, row in ipairs(a) do
+        if type(row) == "table" then
+            for j, v in ipairs(row) do
+                out[j] = out[j] or {}
+                out[j][i] = v
+            end
+        else
+            out[1] = out[1] or {}
+            out[1][i] = row
+        end
+    end
+
+    return out
 end
 
 return numpyLua
