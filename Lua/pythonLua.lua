@@ -19,13 +19,15 @@ local function arrayToString(a)
 end
 
 -- handle printing array content
-function print(t)
-    if type(t) == "table" then
-        -- assume all tables are arrays
-        _print(arrayToString(t))
-    else
-        _print(t)
+function print(...)
+    local args = {...}
+    for i, arg in ipairs(args) do
+        if type(arg) == "table" then
+            -- assume all tables are arrays
+            args[i] = arrayToString(arg)
+        end
     end
+    _print(table.unpack(args))
 end
 
 -- iterator for paired arrays
