@@ -9,7 +9,7 @@ local numpyLua = {}
 local mt_npArray = {
     __add = function(a, b)
         local out = {}
-        for i, v in ipairs(a, b) do
+        for i, v in ipairs(a) do
             out[i] = v + b[i] or 0
         end
 
