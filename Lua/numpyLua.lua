@@ -3,6 +3,7 @@
 -- NOTE: these functions are written to handle the use cases specified
 -- in the NNfS examples and hence contains only bare-minimum error
 -- handling and not very suitable for explorations outside the examples
+require("pythonLua")-- for the zip
 
 local numpyLua = {}
 local mt_npArray = {
