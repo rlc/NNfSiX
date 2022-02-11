@@ -23,16 +23,22 @@ function numpyLua.dot(ta, b)
 
     -- use the first argument ta as the iterator
     for _, a in ipairs(ta) do
-        local sumproduct = 0
-        for va, vb in zip(a, b) do
-            sumproduct = sumproduct + va*vb
-        end
-        table.insert(out, sumproduct)
+        local sumproductAB = numpyLua.sumproduct(a, b)
+        table.insert(out, sumproductAB)
     end
 
     -- convert to numpyArray before returning
     numpyLua.array(out)
     return out
+end
+
+function numpyLua.sumproduct(a, b)
+    local sumproduct = 0
+    for va, vb in zip(a, b) do
+        sumproduct = sumproduct + va*vb
+    end
+
+    return sumproduct
 end
 
 -- convert regular table to npArray
