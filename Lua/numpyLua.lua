@@ -20,7 +20,6 @@ local mt_npArray = {
 -- returned table is expected to have npArray behaviour
 function numpyLua.dot(ta, b)
     local out = {}
-    setmetatable(out, mt_npArray)
 
     -- use the first argument ta as the iterator
     for _, a in ipairs(ta) do
@@ -31,7 +30,14 @@ function numpyLua.dot(ta, b)
         table.insert(out, sumproduct)
     end
 
+    -- convert to numpyArray before returning
+    numpyLua.array(out)
     return out
+end
+
+-- convert regular table to npArray
+function numpyLua.array(t)
+    return setmetatable(t, mt_npArray)
 end
 
 return numpyLua
